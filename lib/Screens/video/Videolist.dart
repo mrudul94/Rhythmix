@@ -1,12 +1,13 @@
-import 'package:Rhythmix/Database/model.dart';
 import 'package:Rhythmix/Database/openbox.dart';
-import 'package:Rhythmix/Screens/song/Audiolist.dart';
 import 'package:Rhythmix/Screens/Homepage.dart';
+import 'package:Rhythmix/Screens/song/Audiolist.dart';
 import 'package:Rhythmix/Screens/video/VideoFunction.dart';
 import 'package:Rhythmix/Screens/video/favoriteVideos/favoritevideos.dart';
-import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:Rhythmix/Database/model.dart';
+
+import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
 
 class Videolist extends StatefulWidget {
   const Videolist({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class Videolist extends StatefulWidget {
 class _VideolistState extends State<Videolist> {
   int _selectedIndex = 0;
   late Box<videofavorite> boxFavorite;
+
   @override
   void initState() {
     super.initState();
@@ -25,6 +27,7 @@ class _VideolistState extends State<Videolist> {
     openBoxes();
     boxFavorite = Hive.box<videofavorite>('Favoriteboc');
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,23 +67,33 @@ class _VideolistState extends State<Videolist> {
           child: SafeArea(
             child: Column(
               children: [
-                TabBar(tabs: [
-                  Tab(
-                    text: 'Videos',
+                TabBar(
+                  tabs: [
+                    Tab(
+                      text: 'Videos',
+                    ),
+                    Tab(
+                      text: 'Playlist',
+                    ),
+                    Tab(
+                      text: 'Favorite',
+                    )
+                  ],
+                ),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: MediaQuery.of(context).size.height - kToolbarHeight - kBottomNavigationBarHeight,
+                        ),
+                        child: Videofunction(),
+                      ),
+                      PlayList(),
+                      Favoritevideos(boxFavorite),
+                    ],
                   ),
-                  Tab(
-                    text: 'Playlist',
-                  ),
-                  Tab(
-                    text: 'Favorite',
-                  )
-                ]),
-                Expanded(child: TabBarView(children: 
-                [
-                  Videofunction(),
-                  PlayList(),
-                  Favoritevideos(boxFavorite),
-                ]))
+                )
               ],
             ),
           ),
