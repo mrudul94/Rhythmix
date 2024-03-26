@@ -1,13 +1,11 @@
 import 'package:Rhythmix/Database/boxes.dart';
-
 import 'package:Rhythmix/Screens/video/favoriteVideos/addvideostofavorite.dart';
 import 'package:Rhythmix/Thumbnail/thumbnail.dart';
 import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:Rhythmix/Database/model.dart';
 import 'package:Rhythmix/Screens/video/Videoplayer.dart';
+import '../../Database/openbox.dart';
 
 class Videofunction extends StatefulWidget {
   const Videofunction({Key? key}) : super(key: key);
@@ -17,17 +15,12 @@ class Videofunction extends StatefulWidget {
 }
 
 class _VideofunctionState extends State<Videofunction> {
-   late Box<Videohive> _boxvideo;
+   
 
   @override
   void initState() {
     super.initState();
-    _openBox();
-  }
-
-  Future<void> _openBox() async {
-    _boxvideo = await Hive.openBox<Videohive>('Videobox');
-    setState(() {});
+    openBoxes();
   }
 
   @override
@@ -46,7 +39,7 @@ class _VideofunctionState extends State<Videofunction> {
                   mainAxisSpacing: 10.0,
                 ),
                 itemBuilder: (context, index) {
-                  final video = _boxvideo.getAt(index);
+                  final video =boxvideo.getAt(index);
 
                   if (video == null) {
                     return Container();
@@ -73,75 +66,77 @@ class _VideofunctionState extends State<Videofunction> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 10),
-                            child: Stack(
-                              children: [
-                                SizedBox(
-                                  height: 120,
-                                  width: double.infinity,
-                                  child: ValueListenableBuilder(
-                                    valueListenable: generateThumbnailNotifier(video.videoFile.createPath()),
-                                    builder: (context, thumbnailData, child) {
-                                      if (thumbnailData != null) {
-                                        return Image.memory(
-                                          thumbnailData,
-                                          fit: BoxFit.cover,
-                                        );
-                                      } else {
-                                        return Image.asset(
-                                          'android/assets/images/Placeholder image.jpg',
-                                          fit: BoxFit.cover,
-                                        );
-                                      }
-                                    },
-                                  ),
-                                ),
-                                Positioned(
-                                  top: 10,
-                                  child: PopupMenuButton(
-                                    itemBuilder: (context) => [
-                                      PopupMenuItem(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (ctx) => CustomVideoPlayer(
-                                                videoPath: video.videoFile,
-                                              ),
-                                            ),
+                            child: SizedBox(
+                              child: Stack(
+                                children: [
+                                  SizedBox(
+                                    height: 120,
+                                   width: double.infinity,
+                                    child: ValueListenableBuilder(
+                                      valueListenable: generateThumbnailNotifier(video.videoFile.createPath()),
+                                      builder: (context, thumbnailData, child) {
+                                        if (thumbnailData != null) {
+                                          return Image.memory(
+                                            thumbnailData,
+                                            fit: BoxFit.cover,
                                           );
-                                        },
-                                        child: const Text('Play'),
-                                      ),
-                                      PopupMenuItem(
-                                        onTap: () {
-                                          // Add to playlist
-                                        },
-                                        child: const Text('Add to Playlist'),
-                                      ),
-                                      PopupMenuItem(
-                                        onTap: () {
-                                          addToFavorites(video.videoFile,context,boxFavorite);
-                                        },
-                                        child: const Text('Add to Favorite'),
-                                      ),
-                                      PopupMenuItem(
-                                        onTap: () {
-                                          // Share video
-                                        },
-                                        child: const Text('Share'),
-                                      ),
-                                    ],
-                                    child: const Padding(
-                                      padding: EdgeInsets.only(left: 130),
-                                      child: Icon(
-                                        Icons.more_vert,
-                                        size: 30,
-                                        color: Colors.white,
+                                        } else {
+                                          return Image.asset(
+                                            'android/assets/images/Placeholder image.jpg',
+                                            fit: BoxFit.cover,
+                                          );
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 10,
+                                    child: PopupMenuButton(
+                                      itemBuilder: (context) => [
+                                        PopupMenuItem(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (ctx) => CustomVideoPlayer(
+                                                  videoPath: video.videoFile,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: const Text('Play'),
+                                        ),
+                                        PopupMenuItem(
+                                          onTap: () {
+                                            // Add to playlist
+                                          },
+                                          child: const Text('Add to Playlist'),
+                                        ),
+                                        PopupMenuItem(
+                                          onTap: () {
+                                            addToFavorites(video.videoFile,context,boxFavorite);
+                                          },
+                                          child: const Text('Add to Favorite'),
+                                        ),
+                                        PopupMenuItem(
+                                          onTap: () {
+                                            // Share video
+                                          },
+                                          child: const Text('Share'),
+                                        ),
+                                      ],
+                                      child: const Padding(
+                                        padding: EdgeInsets.only(left: 130),
+                                        child: Icon(
+                                          Icons.more_vert,
+                                          size: 30,
+                                          color: Color.fromARGB(255, 163, 163, 163),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                           Padding(
@@ -164,7 +159,7 @@ class _VideofunctionState extends State<Videofunction> {
                     ),
                   );
                 },
-                itemCount: _boxvideo.length,
+                itemCount: boxvideo.length,
               ),
             ),
           ],

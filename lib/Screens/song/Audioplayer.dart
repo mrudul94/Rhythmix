@@ -21,6 +21,7 @@ class _AudioplayerScreenState extends State<AudioplayerScreen> {
   void initState() {
     super.initState();
     _initPlayer();
+    _togglePlayback(); // Automatically start playing the audio when the page loads
   }
 
   Future<void> _initPlayer() async {

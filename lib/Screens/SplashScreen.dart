@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (allGranted) {
       // Permissions granted, navigate to home screen
-     
+      
       // ignore: use_build_context_synchronously
       gotoHomeScreen(context);
 

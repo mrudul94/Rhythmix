@@ -1,4 +1,4 @@
-import 'dart:async';
+
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ ValueNotifier<Uint8List?> generateThumbnailNotifier(String videoPath) {
   ).then((thumbnailData) {
     thumbnailNotifier.value = thumbnailData;
   }).catchError((error, stackTrace) {
-    print('Error generating thumbnail: $error');
+    
     thumbnailNotifier.value = null;
   });
 

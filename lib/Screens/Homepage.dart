@@ -1,10 +1,10 @@
-import 'package:Rhythmix/Database/model.dart';
+
 import 'package:Rhythmix/Screens/song/Audiolist.dart';
 import 'package:Rhythmix/Screens/video/Videolist.dart';
-import 'package:Rhythmix/Screens/video/favoriteVideos/favoritevideos.dart';
+
 import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
