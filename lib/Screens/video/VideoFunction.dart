@@ -1,4 +1,6 @@
 import 'package:Rhythmix/Database/boxes.dart';
+
+import 'package:Rhythmix/Screens/video/favoriteVideos/addvideostofavorite.dart';
 import 'package:Rhythmix/Thumbnail/thumbnail.dart';
 import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,7 @@ class Videofunction extends StatefulWidget {
 }
 
 class _VideofunctionState extends State<Videofunction> {
-  late Box<Videohive> _boxvideo;
+   late Box<Videohive> _boxvideo;
 
   @override
   void initState() {
@@ -118,7 +120,7 @@ class _VideofunctionState extends State<Videofunction> {
                                       ),
                                       PopupMenuItem(
                                         onTap: () {
-                                          _addToFavorites(video.videoFile);
+                                          addToFavorites(video.videoFile,context,boxFavorite);
                                         },
                                         child: const Text('Add to Favorite'),
                                       ),
@@ -169,23 +171,5 @@ class _VideofunctionState extends State<Videofunction> {
         ),
       ),
     );
-  }
-
-  // Function to add video to favorites
-  void _addToFavorites(String videoPath) {
-    setState(() {
-      // Check if the video is already in favorites
-      if (!boxFavorite.values.any((element) => element.Favoritevideo == videoPath)) {
-        // If not in favorites, add it
-        boxFavorite.add(videofavorite(Favoritevideo: videoPath));
-      } else {
-        // If already in favorites, show a Snackbar
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('This video is already in favorites'),
-          ),
-        );
-      }
-    });
   }
 }
