@@ -11,20 +11,25 @@ class Videohive {
 
   get videoPath => null;
 
+  get playlistId => null;
+
  
 }
 @HiveType(typeId: 2)
-class videoplaylist {
+class VideoPlaylist {
   @HiveField(0)
   String name;
 
   @HiveField(1)
   List? videos;
-
   @HiveField(2)
   int id;
 
-  videoplaylist({required this.name,required this.videos,required this.id});
+  VideoPlaylist({required this.name, this.videos, required this.id});
+
+  get playlistId => null;
+
+  get videoFile => null;
 }
 @HiveType(typeId: 3)
 class videofavorite {

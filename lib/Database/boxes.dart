@@ -1,8 +1,8 @@
 
-import 'package:Rhythmix/Database/model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:rhythmix/Database/model.dart';
 
 // late Box boxvideo;
-late Box boxvideoplaylist;
+ late Box playlistBox;
 late Box boxFavorite;
 late Box<Videohive> boxvideo;

@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-
 const LinearGradient myGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
@@ -16,21 +15,10 @@ class PlayList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(width:double.infinity,
+    return const Scaffold(
+      body: SizedBox(width:double.infinity,
         child: Center(child: Text('ksajdvwshddlhl;wsdk;wdfh'),),
       ),
     );
   }
 }
-// class FavoriteList extends StatelessWidget {
-//   const FavoriteList({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(),
-//     );
-//   }
-// }
-

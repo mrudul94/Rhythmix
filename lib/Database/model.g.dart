@@ -40,17 +40,17 @@ class VideohiveAdapter extends TypeAdapter<Videohive> {
           typeId == other.typeId;
 }
 
-class videoplaylistAdapter extends TypeAdapter<videoplaylist> {
+class VideoPlaylistAdapter extends TypeAdapter<VideoPlaylist> {
   @override
   final int typeId = 2;
 
   @override
-  videoplaylist read(BinaryReader reader) {
+  VideoPlaylist read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return videoplaylist(
+    return VideoPlaylist(
       name: fields[0] as String,
       videos: (fields[1] as List?)?.cast<dynamic>(),
       id: fields[2] as int,
@@ -58,7 +58,7 @@ class videoplaylistAdapter extends TypeAdapter<videoplaylist> {
   }
 
   @override
-  void write(BinaryWriter writer, videoplaylist obj) {
+  void write(BinaryWriter writer, VideoPlaylist obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -75,7 +75,7 @@ class videoplaylistAdapter extends TypeAdapter<videoplaylist> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is videoplaylistAdapter &&
+      other is VideoPlaylistAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

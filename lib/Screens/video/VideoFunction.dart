@@ -1,10 +1,12 @@
-import 'package:Rhythmix/Database/boxes.dart';
-import 'package:Rhythmix/Screens/video/favoriteVideos/addvideostofavorite.dart';
-import 'package:Rhythmix/Thumbnail/thumbnail.dart';
-import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Rhythmix/Screens/video/Videoplayer.dart';
+import 'package:rhythmix/Database/boxes.dart';
+import 'package:rhythmix/Screens/video/Videoplayer.dart';
+import 'package:rhythmix/favoriteVideos/addvideostofavorite.dart';
+import 'package:rhythmix/Thumbnail/thumbnail.dart';
+import 'package:rhythmix/backgroundcolor/backgroundcolor.dart';
+import 'package:rhythmix/showdialoges/showdialoge.dart';
 import '../../Database/openbox.dart';
 
 class Videofunction extends StatefulWidget {
@@ -72,7 +74,7 @@ class _VideofunctionState extends State<Videofunction> {
                                   SizedBox(
                                     height: 120,
                                    width: double.infinity,
-                                    child: ValueListenableBuilder(
+                                    child: ValueListenableBuilder<Uint8List?>(
                                       valueListenable: generateThumbnailNotifier(video.videoFile.createPath()),
                                       builder: (context, thumbnailData, child) {
                                         if (thumbnailData != null) {
@@ -102,13 +104,14 @@ class _VideofunctionState extends State<Videofunction> {
                                                   videoPath: video.videoFile,
                                                 ),
                                               ),
+                                              
                                             );
                                           },
                                           child: const Text('Play'),
                                         ),
                                         PopupMenuItem(
                                           onTap: () {
-                                            // Add to playlist
+                                            showAllPlaylistDialog(video,context);
                                           },
                                           child: const Text('Add to Playlist'),
                                         ),
@@ -167,4 +170,47 @@ class _VideofunctionState extends State<Videofunction> {
       ),
     );
   }
+//   void _showAllPlaylistDialog(Videohive videoPath, BuildContext context) async {
+//   try {
+//     final playlistBox = Hive.box<VideoPlaylist>('videoplaylistBox');
+
+    
+
+//     showDialog(
+//       context: context,
+//       builder: (BuildContext context) {
+//         return AlertDialog(
+//           title: const Text('Add to Playlist'),
+//           content: ListView.builder(
+//             shrinkWrap: true,
+//             itemCount: playlistBox.length,
+//             itemBuilder: (context, index) {
+//               final playlistid = playlistBox.getAt(index);
+//               return ListTile(
+//                 title: Text(playlistid!.name),
+//                 onTap: () async {
+//                   Navigator.pop(context);
+//                   // Await the addVideoToPlaylist function
+//                   await addVideoToPlaylist(context, videoPath, playlistid.id);
+//                 },
+//               );
+//             },
+//           ),
+//         );
+//       },
+//     );
+//   } catch (e) {
+   
+//     // Handle error gracefully, e.g., show a snackbar
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(
+//         content: Text('Error showing playlist dialog: $e'),
+//       ),
+//     );
+//   }
+// }
+
 }
+
+
+

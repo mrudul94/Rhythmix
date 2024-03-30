@@ -1,7 +1,6 @@
-// audio_functions.dart
-import 'package:Rhythmix/Screens/song/Audioplayer.dart';
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:rhythmix/Screens/song/Audioplayer.dart';
 
 Widget audioFunction(BuildContext context) {
   return FutureBuilder<List<SongModel>>(

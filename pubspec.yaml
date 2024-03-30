@@ -1,4 +1,4 @@
-name: Rhythmix
+name: rhythmix
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: ">=2.17.0 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -59,7 +59,7 @@ flutter_launcher_icons:
   min_sdk_android: 21
   flutter_app_name: ^0.1.0
 flutter_app_name:
-  name: "Rhythmix"
+  name: Rhythmix
   flutter_test:
     sdk: flutter
 

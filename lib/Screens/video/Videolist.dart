@@ -1,13 +1,14 @@
-import 'package:Rhythmix/Database/openbox.dart';
-import 'package:Rhythmix/Screens/Homepage.dart';
-import 'package:Rhythmix/Screens/song/Audiolist.dart';
-import 'package:Rhythmix/Screens/video/VideoFunction.dart';
-import 'package:Rhythmix/Screens/video/favoriteVideos/favoritevideos.dart';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:Rhythmix/Database/model.dart';
-
-import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
+import 'package:rhythmix/Database/model.dart';
+import 'package:rhythmix/Database/openbox.dart';
+import 'package:rhythmix/Screens/Homepage.dart';
+import 'package:rhythmix/Screens/song/Audiolist.dart';
+import 'package:rhythmix/Screens/video/VideoFunction.dart';
+import 'package:rhythmix/Videoplaylist/videoplaylistHome.dart';
+import 'package:rhythmix/favoriteVideos/favoritevideos.dart';
+import 'package:rhythmix/backgroundcolor/backgroundcolor.dart';
 
 class Videolist extends StatefulWidget {
   const Videolist({Key? key}) : super(key: key);
@@ -89,7 +90,7 @@ class _VideolistState extends State<Videolist> {
                         ),
                         child: Videofunction(),
                       ),
-                      PlayList(),
+                      VideoPlayLists(),
                       Favoritevideos(boxFavorite),
                     ],
                   ),

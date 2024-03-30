@@ -1,16 +1,15 @@
-
-import 'package:Rhythmix/Database/boxes.dart';
-import 'package:Rhythmix/Fletching/videoFetching/dbfunction.dart';
-import 'package:Rhythmix/Database/model.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:permission_handler/permission_handler.dart';
-import 'package:Rhythmix/Screens/Homepage.dart';
-import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
+import 'package:rhythmix/Database/model.dart';
+import 'package:rhythmix/Fletching/videoFetching/dbfunction.dart';
+import 'package:rhythmix/Screens/Homepage.dart';
+import 'package:rhythmix/backgroundcolor/backgroundcolor.dart';
+
+import '../Database/boxes.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();

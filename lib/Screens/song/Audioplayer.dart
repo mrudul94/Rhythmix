@@ -3,8 +3,7 @@ import 'package:just_audio/just_audio.dart';
 
 class AudioplayerScreen extends StatefulWidget {
   final String audioPath;
-  const AudioplayerScreen({Key? key, required this.audioPath})
-      : super(key: key);
+  const AudioplayerScreen({super.key, required this.audioPath});
 
   @override
   // ignore: library_private_types_in_public_api

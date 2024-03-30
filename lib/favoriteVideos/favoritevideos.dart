@@ -1,15 +1,19 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:Rhythmix/Database/model.dart';
-import 'package:Rhythmix/Screens/video/Videoplayer.dart';
-import 'package:Rhythmix/Thumbnail/thumbnail.dart';
-import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
+import 'package:rhythmix/Database/model.dart';
+import 'package:rhythmix/Screens/video/Videoplayer.dart';
+
+import 'package:rhythmix/Thumbnail/thumbnail.dart';
+import 'package:rhythmix/backgroundcolor/backgroundcolor.dart';
 
 class Favoritevideos extends StatefulWidget {
   final Box<videofavorite> boxFavorite;
 
-  const Favoritevideos(this.boxFavorite, {Key? key}) : super(key: key);
+  const Favoritevideos(this.boxFavorite, {super.key});
 
   @override
   State<Favoritevideos> createState() => _FavoritevideosState();
@@ -34,7 +38,7 @@ class _FavoritevideosState extends State<Favoritevideos> {
                   return Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 10,right: 10),
+                        padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Container(
                           height: 70,
                           decoration: BoxDecoration(
@@ -45,9 +49,10 @@ class _FavoritevideosState extends State<Favoritevideos> {
                               title: Text(
                                 favoriteVideo.Favoritevideo.split('/').last,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
                               ),
-                              leading: ValueListenableBuilder(
+                              leading: ValueListenableBuilder<Uint8List?>(
                                 valueListenable: generateThumbnailNotifier(
                                     favoriteVideo.Favoritevideo.createPath()),
                                 builder: (context, thumbnailData, child) {
@@ -58,8 +63,7 @@ class _FavoritevideosState extends State<Favoritevideos> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                       ),
-                                      child: 
-                                      ClipRRect(
+                                      child: ClipRRect(
                                         borderRadius: BorderRadius.circular(15),
                                         child: Image.memory(
                                           thumbnailData,
@@ -107,7 +111,8 @@ class _FavoritevideosState extends State<Favoritevideos> {
                                   // Delete the favorite video from the box when delete button is pressed
                                   deletefav(index);
                                 },
-                                icon: const Icon(Icons.favorite, color: Colors.red),
+                                icon: const Icon(Icons.favorite,
+                                    color: Colors.red),
                               ),
                             ),
                           ),

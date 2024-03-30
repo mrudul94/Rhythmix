@@ -1,15 +1,17 @@
-import 'package:Rhythmix/Screens/Homepage.dart';
-import 'package:Rhythmix/Screens/song/AudioFunctions.dart';
-import 'package:Rhythmix/Screens/song/favoriteSongs/favoritesongs.dart';
-import 'package:Rhythmix/Screens/video/Videolist.dart';
-import 'package:Rhythmix/backgroundcolor/backgroundcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:rhythmix/Screens/Homepage.dart';
+import 'package:rhythmix/Screens/song/AudioFunctions.dart';
+import 'package:rhythmix/favoriteSongs/favoritesongs.dart';
+
+import 'package:rhythmix/Screens/video/Videolist.dart';
+
+import 'package:rhythmix/backgroundcolor/backgroundcolor.dart';
 // ignore: unused_import
 import 'Audioplayer.dart'; 
 
 class Songs extends StatefulWidget {
-  const Songs({Key? key}) : super(key: key);
+  const Songs({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
