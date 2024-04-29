@@ -36,7 +36,6 @@ dependencies:
   build_runner: ^2.1.0
   watcher: ^1.0.0
   get: ^4.6.6
-  path_provider: ^2.1.1
   video_thumbnail: ^0.5.3
   list_all_videos: ^1.2.0
   on_audio_query: ^2.9.0
