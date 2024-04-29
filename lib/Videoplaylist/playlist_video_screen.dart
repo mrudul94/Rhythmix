@@ -5,7 +5,7 @@ import 'package:rhythmix/favorite_videos/add_videos_to_favorite.dart';
 import 'package:rhythmix/hive_items/boxes.dart';
 import 'package:rhythmix/recently_played/recently_played_videos/recently_played_videos_screen.dart';
 import 'package:rhythmix/Screens/video/video_player.dart';
-import 'package:rhythmix/Videoplaylist/playlist_video_list.dart';
+import 'package:rhythmix/videoplaylist/playlist_video_list.dart';
 import 'package:rhythmix/Thumbnail/thumbnail_generator.dart';
 import 'package:rhythmix/hive_items/model.dart';
 import 'package:rhythmix/share/share_video.dart';

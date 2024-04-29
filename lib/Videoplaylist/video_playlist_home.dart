@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:rhythmix/Videoplaylist/playlist_video_screen.dart';
+import 'package:rhythmix/videoplaylist/playlist_video_screen.dart';
 import 'package:rhythmix/hive_items/model.dart';
 import 'package:rhythmix/showdialoges/show_dialog.dart';
 

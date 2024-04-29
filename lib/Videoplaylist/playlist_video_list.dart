@@ -2,7 +2,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rhythmix/Videoplaylist/playlist_function.dart';
+import 'package:rhythmix/videoplaylist/playlist_function.dart';
 import 'package:rhythmix/Thumbnail/thumbnail_generator.dart';
 import 'package:rhythmix/favorite_videos/add_videos_to_favorite.dart';
 import 'package:rhythmix/hive_items/boxes.dart';

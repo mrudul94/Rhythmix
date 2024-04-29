@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:rhythmix/Videoplaylist/playlist_function.dart';
+import 'package:rhythmix/videoplaylist/playlist_function.dart';
 import 'package:rhythmix/hive_items/model.dart';
 
 void showDeletePlaylistDialog(

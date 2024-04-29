@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls, use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:rhythmix/Videoplaylist/playlist_video_screen.dart';
+import 'package:rhythmix/videoplaylist/playlist_video_screen.dart';
 import 'package:rhythmix/hive_items/model.dart';
 
 Future<List<VideoPlaylist>> getvideo() async {
