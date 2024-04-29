@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:rhythmix/Database/adapter.dart';
-import 'package:rhythmix/Database/openbox.dart';
+import 'package:rhythmix/hive_items/adapter.dart';
+import 'package:rhythmix/hive_items/open_box.dart';
+import 'Screens/splash_screen.dart';
 
-import 'Screens/SplashScreen.dart';
-
-Future <void> main() async {
+Future<void> main() async {
   await Hive.initFlutter();
   registerAdapter();
   openBoxes();
@@ -17,10 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const SplashScreen(),
+      home: SplashScreen(),
     );
   }
 }
