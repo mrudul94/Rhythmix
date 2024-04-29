@@ -8,11 +8,11 @@ Future<void> main() async {
   await Hive.initFlutter();
   registerAdapter();
   openBoxes();
-  runApp(const MyApp());
+  runApp(const Rhythmix());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Rhythmix extends StatelessWidget {
+  const Rhythmix({super.key});
 
   @override
   Widget build(BuildContext context) {
