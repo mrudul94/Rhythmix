@@ -20,3 +20,14 @@ Clean and modern UI/UX design
 
 Smooth navigation between screens
 
+<img src="screenshots/home.png" width="300"/>
+
+<img src="screenshots/audio.png" width="300"/>
+
+<img src="screenshots/video.png" width="300"/>
+
+<img src="screenshots/splash.png" width="300"/>
+
+<img src="screenshots/playlist.png" width="300"/>
+
+<img src="screenshots/favorite.png" width="300"/>
