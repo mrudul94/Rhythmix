@@ -1,16 +1,22 @@
-# rhythmix
+Rhythmix – Multimedia Application (Flutter)
 
-A new Flutter project.
+Rhythmix is a Flutter-based multimedia application that allows users to play both video and audio within the same app. Users can create playlists, mark their favorite media, and enjoy a smooth, organized media experience.
 
-## Getting Started
+The app uses Hive for local storage and efficiently manages audio/video queries and playlists.
 
-This project is a starting point for a Flutter application.
+Features
 
-A few resources to get you started if this is your first Flutter project:
+Play audio and video in the same application
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Create, edit, and manage playlists
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Mark media as favorites
+
+Hive database integration for local storage
+
+Query and display all audio/video files
+
+Clean and modern UI/UX design
+
+Smooth navigation between screens
+
